@@ -7,80 +7,109 @@
     <style>
       html,
       body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: -0.1px;
         margin: 0;
         padding: 0;
       }
-      .header {
-        height: 100px;
-        width: 100%;
-        padding: 10px;
-        background-color: rgba(165, 162, 162, 0.7);
-        display: block;
+      * {
+        box-sizing: border-box;
       }
-      .linki {
+      .header {
+        position: fixed;
+        top: 0;
+        height: 96px;
+        width: 100%;
+        padding: 16px;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid grey;
+      }
+      .navigation {
         text-align: center;
       }
-      .linki a {
+      .navigation a {
+        transition: background-color 0.2s ease, color 0.2s ease;
         display: inline-block;
-        color: black;
+        color: white;
         text-decoration: none;
-        padding: 7px;
-        font-size: 20px;
-        border-radius: 5px;
+        padding: 4px 8px;
+        font-size: 16px;
+        border-radius: 4px;
       }
-      .linki a:hover {
+      .navigation a:hover {
         background-color: rgba(40, 38, 38, 0.723);
         color: white;
       }
+      .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(banner1.webp);
+        height: 100dvh;
+        width: 100%;
+        background-size: cover;
+        position: static;
+
+        text-align: justify;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        padding: 16px 0px 0px 0px;
+      }
+      .banner ul {
+        list-style-type: none;
+      }
+
       .logo {
-        text-align: left;
-        text-shadow: 20px;
+        text-shadow: 16px;
         font-size: larger;
       }
     </style>
   </head>
   <body>
     <header class="header">
-      <div class="logo">
-        <img
-          src="https://th.bing.com/th/id/OIG.ZE_BoRhZWdDvxd.7Xi.l?pid=ImgGn"
-          alt="Logo"
-          height="64"
-          width="64"
-        />
-      </div>
-      <div class="linki">
-        <a class="active" href="#home">Home</a>
-        <a href="#usługi">Usługi</a>
+      <a href="/" class="logo">
+        <img src="logo.webp" alt="Logo" height="64" width="64" />
+      </a>
+      <nav class="navigation">
+        <a href="#start">Start</a>
+        <a href="#uslugi">Usługi</a>
         <a href="#cennik">Cennik</a>
-        <a href="#spis_uslug">Spis usług</a>
         <a href="#kontakt">Kontakt</a>
-      </div>
+      </nav>
     </header>
-    <h1 id="home">Izabela Gałosz Tłumacz Przysięgły Języka Niemieckiego</h1>
+    <div class="banner">
+      <h1 id="start">Izabela Gałosz Tłumacz Przysięgły Języka Niemieckiego</h1>
 
-    <ul>
-      <li>
-        2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
-        Szczecińskim
-      </li>
-      <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
-      <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
-      <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
-      <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
-    </ul>
-    <h3>praca tłumacza</h3>
-    <p>
-      tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która
-      upoważnia prawnie do tłumaczenia. Co w połączeniu z kompleksową wiedzą,
-      wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
-      wiarygodnością czyni mnie jako tłumacza od 2004r. idealnym kandydatem do
-      powierzenia dokumentów.<br />
-      W pracy tłumacza liczy się również poufność informacji oraz terminowość,
-      są to rzeczy których trzymam się niezmiennie od prawie 20 lat.
-    </p>
+      <ul>
+        <li>
+          2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
+          Szczecińskim
+        </li>
+        <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
+        <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
+        <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
+        <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
+      </ul>
+      <h3>praca tłumacza</h3>
+      <p>
+        tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która
+        upoważnia prawnie do tłumaczenia. Co w połączeniu z kompleksową wiedzą,
+        wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
+        wiarygodnością czyni mnie jako tłumacza od 2004r. idealnym kandydatem do
+        powierzenia dokumentów.<br />
+        W pracy tłumacza liczy się również poufność informacji oraz terminowość,
+        są to rzeczy których trzymam się niezmiennie od prawie 20 lat.
+      </p>
+    </div>
     <hr />
-    <h2 id="usługi">Usługi:</h2>
+    <h2 id="uslugi">Usługi:</h2>
     <p><strong>Dla podmiotów prywatnych:</strong></p>
     <br />
     <ul>
