@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tłumacz przysiegły</title>
     <style>
+      :root {
+        --color-grey-100: #e6e6e6;
+        --color-grey-300: #b3b3b3;
+      }
       html,
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -14,6 +18,10 @@
       }
       * {
         box-sizing: border-box;
+      }
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
       }
       .header {
         position: fixed;
@@ -27,10 +35,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid var(--color-grey-300);
+        backdrop-filter: blur(8px);
+        background-color: rgba(0, 0, 0, 0.5);
       }
       .navigation {
+        text-transform: uppercase;
         text-align: center;
+        display: flex;
+        gap: 4rem;
       }
       .navigation a {
         transition: background-color 0.2s ease, color 0.2s ease;
@@ -55,28 +68,80 @@
         width: 100%;
         background-size: cover;
         position: static;
-
         text-align: justify;
         text-align: center;
         font-size: 16px;
         color: white;
         padding: 16px 0px 0px 0px;
       }
-      .banner ul {
-        list-style-type: none;
+      .banner h1 {
+        font-size: 48px;
       }
-
+      .banner p {
+        font-size: 18px;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo-container small {
+        color: var(--color-grey-100);
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 1px;
+        font-size: 11px;
+      }
+      .logo-container .name {
+        display: flex;
+        flex-direction: column;
+      }
       .logo {
         text-shadow: 16px;
         font-size: larger;
+      }
+      .button {
+        text-decoration: none;
+        display: block;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+        color: black;
+        font-size: 20px;
+        line-height: 1;
+        padding: 12px 32px;
+        border-radius: 50px;
+        background: white;
+        transition: all 0.2s ease;
+      }
+      .button.primary {
+        background: #fcaf01;
+        color: white;
+      }
+      .button + .button {
+        margin-top: 8px;
+      }
+      .footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: grey;
+        height: 200px;
       }
     </style>
   </head>
   <body>
     <header class="header">
-      <a href="/" class="logo">
-        <img src="logo.webp" alt="Logo" height="64" width="64" />
-      </a>
+      <div class="logo-container">
+        <a href="/" class="logo">
+          <img src="logo.webp" alt="Logo" height="64" width="64" />
+        </a>
+        <div class="name">
+          <strong>Izabela Gałosz</strong>
+          <small>tłumacz przysięgły</small>
+        </div>
+      </div>
       <nav class="navigation">
         <a href="#start">Start</a>
         <a href="#uslugi">Usługi</a>
@@ -85,31 +150,37 @@
       </nav>
     </header>
     <div class="banner">
-      <h1 id="start">Izabela Gałosz Tłumacz Przysięgły Języka Niemieckiego</h1>
+      <div class="container">
+        <h1 id="start">
+          Tłumacz Przysięgły<br />
+          Języka Niemieckiego
+        </h1>
 
-      <ul>
-        <li>
-          2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
-          Szczecińskim
-        </li>
-        <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
-        <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
-        <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
-        <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
-      </ul>
-      <h3>praca tłumacza</h3>
-      <p>
-        tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która
-        upoważnia prawnie do tłumaczenia. Co w połączeniu z kompleksową wiedzą,
-        wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
-        wiarygodnością czyni mnie jako tłumacza od 2004r. idealnym kandydatem do
-        powierzenia dokumentów.<br />
-        W pracy tłumacza liczy się również poufność informacji oraz terminowość,
-        są to rzeczy których trzymam się niezmiennie od prawie 20 lat.
-      </p>
+        <p>
+          Tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która
+          upoważnia prawnie do tłumaczenia. W połączeniu z kompleksową wiedzą,
+          wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
+          wiarygodnością czyni mnie jako tłumacza od 2004 roku idealnym
+          kandydatem do powierzenia dokumentów. Zapewniamy poufność informacji
+          oraz terminowość.
+        </p>
+      </div>
+      <a class="button primary" href="tel:+48692516944">+48 692 516 944</a>
+      <a class="button" href="mailto:izagalosz@wp.pl">izagalosz@wp.pl</a>
     </div>
     <hr />
     <h2 id="uslugi">Usługi:</h2>
+    <ul>
+      <li>
+        2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
+        Szczecińskim
+      </li>
+      <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
+      <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
+      <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
+      <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
+    </ul>
+
     <p><strong>Dla podmiotów prywatnych:</strong></p>
     <br />
     <ul>
@@ -207,12 +278,15 @@
       </li>
     </ul>
     <hr />
-    <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
-    <p>
-      <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie <br />
-      <strong>Telefon:</strong> 692 516 944<br />
-      <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
-    </p>
-    <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+    <footer class="footer">
+      <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
+      <p>
+        <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
+        <br />
+        <strong>Telefon:</strong> 692 516 944<br />
+        <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
+      </p>
+      <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+    </footer>
   </body>
 </html>
