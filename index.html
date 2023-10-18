@@ -122,12 +122,69 @@
       .button + .button {
         margin-top: 8px;
       }
-      .footer {
+      .grid-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 16px;
+      }
+      .grid-6 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 16px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+      .card {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        height: 196px;
+        border: 1px solid black;
+      }
+      .card h3 {
+        margin: 0;
+        line-height: 1;
+      }
+      .card p {
+        margin: 0;
+      }
+
+      .footer {
+        display: flex;
         width: 100%;
-        background-color: grey;
-        height: 200px;
+        flex-direction: row;
+        background-color: black;
+        justify-content: space-between;
+        align-content: center;
+        color: white;
+        padding: 1rem 1rem;
+      }
+      .footer nav {
+        text-transform: uppercase;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: right;
+        align-items: center;
+      }
+      .footer nav a {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+      .footer nav a:hover {
+        text-decoration: underline;
+      }
+
+      .footer .copyright {
+        font-size: 12px;
       }
     </style>
   </head>
@@ -169,7 +226,6 @@
       <a class="button" href="mailto:izagalosz@wp.pl">izagalosz@wp.pl</a>
     </div>
     <hr />
-    <h2 id="uslugi">Usługi:</h2>
     <ul>
       <li>
         2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
@@ -180,26 +236,57 @@
       <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
       <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
     </ul>
+    <h2 id="uslugi">Usługi:</h2>
 
     <p><strong>Dla podmiotów prywatnych:</strong></p>
-    <br />
-    <ul>
-      <li>
-        Akty urzędu stanu cywilnego(akty urodzenia, zgonu,zawarcia małżeństwa).
-      </li>
-      <li>
-        Dokumenty samochodowe(umowa kupna-sprzedaży, dowód rejestracyjny, karta
-        pojazdu).
-      </li>
-      <li>Dokumenty sądowe(pozwy, wyroki, wezwania, nakazy, pouczenia).</li>
-      <li>Decyzje administracyjne.</li>
-      <li>Dokumenty handlowe(faktury).</li>
-      <li>Świadectwa i dyplomy.</li>
-      <li>Dokumenty rozwodowe.</li>
-      <li>Tłumaczenia zwykłe.</li>
-    </ul>
+    <div class="grid-4">
+      <div class="card">
+        <h3>Akty cywilne</h3>
+        <p>akty urodzenia, akty zgonu, akty zawarcia małżeństwa.</p>
+      </div>
+      <div class="card">
+        <h3>Dokumenty samochodowe</h3>
+        <p>umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu.</p>
+      </div>
+      <div class="card">
+        <h3>Dokumenty sądowe</h3>
+        <p>pozwy, wyroki, wezwania, nakazy, pouczenia.</p>
+      </div>
+      <div class="card">
+        <h3>Decyzje administracyjne</h3>
+        <p>decyzje administracyjne indywidualne, ogólne, kontrolne.</p>
+      </div>
+      <div class="card">
+        <h3>Dokumenty handlowe</h3>
+        <p>faktury, certyfikaty pochodzenia, zwroty zakupów.</p>
+      </div>
+      <div class="card">
+        <h3>Świadectwa i dyplomy</h3>
+        <p>świadectwa ukończenia szkoły, certyfikaty zawodowe.</p>
+      </div>
+      <div class="card">
+        <h3>Dokumenty rozwodowe</h3>
+        <p></p>
+      </div>
+      <div class="card">
+        <h3>Tłumaczenia zwykłe</h3>
+        <p></p>
+      </div>
+    </div>
     <p><strong>Dla firm:</strong></p>
-    <br />
+    <div class="grid-6">
+      <div class="card"><h3>Umowy firmowe</h3></div>
+      <div class="card"><h3>Akty notarialne</h3></div>
+      <div class="card"><h3>Dokumenty rejestracyjne firm</h3></div>
+      <div class="card"><h3>Sprawozdania finansowe</h3></div>
+      <div class="card">
+        <h3>Pełnomocnictwa</h3>
+      </div>
+      <div class="card">
+        <h3>dokumenty korporacyjne</h3>
+        <p>Statuty, polityka firmy, strategie biznesowe.</p>
+      </div>
+    </div>
     <ul>
       <li>Świadectwa i umowy o prace.</li>
       <li>Akty notarialne.</li>
@@ -212,7 +299,11 @@
       <li>Pełnomocnictwa.</li>
     </ul>
     <p><strong>Tłumaczenia ustne:</strong></p>
-    <br />
+    <div class="grid-3">
+      <div class="card"><h3></h3></div>
+      <div class="card"><h3></h3></div>
+      <div class="card"><h3></h3></div>
+    </div>
     <ul>
       <li>Tłumaczenia konsekutywne i symultaniczne w przykałdowych formach:</li>
       <li>Możliwość zadzwonienia przez tłumacza w imieniu zleceniodawcy.</li>
@@ -278,15 +369,22 @@
       </li>
     </ul>
     <hr />
+    <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
+    <p>
+      <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
+      <br />
+      <strong>Telefon:</strong> 692 516 944<br />
+      <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
+    </p>
+    <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
     <footer class="footer">
-      <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
-      <p>
-        <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
-        <br />
-        <strong>Telefon:</strong> 692 516 944<br />
-        <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
-      </p>
-      <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+      <div class="copyright">© 2023. Wszelkie prawa zastrzeżone.</div>
+      <nav>
+        <a href="#start">Start</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </footer>
   </body>
 </html>
