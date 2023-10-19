@@ -7,7 +7,14 @@
     <style>
       :root {
         --color-grey-100: #e6e6e6;
+        --color-grey-200: #cccccc;
         --color-grey-300: #b3b3b3;
+        --color-grey-400: #999999;
+        --color-grey-500: #808080;
+        --color-grey-600: #666666;
+        --color-grey-700: #4d4d4d;
+        --color-grey-800: #333333;
+        --color-grey-900: #1a1a1a;
       }
       html,
       body {
@@ -16,6 +23,17 @@
         margin: 0;
         padding: 0;
       }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        margin: 1rem 0;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -127,25 +145,23 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 16px;
       }
-      .grid-6 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        gap: 16px;
-      }
+
       .grid-3 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 16px;
       }
       .card {
+        color: black;
+        background-size: cover;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 1rem;
-        height: 196px;
-        border: 1px solid black;
+        height: 256px;
+        border: 1px solid var(--color-grey-200);
       }
-      .card h3 {
+      .card h4 {
         margin: 0;
         line-height: 1;
       }
@@ -225,177 +241,223 @@
       <a class="button primary" href="tel:+48692516944">+48 692 516 944</a>
       <a class="button" href="mailto:izagalosz@wp.pl">izagalosz@wp.pl</a>
     </div>
-    <hr />
-    <ul>
-      <li>
-        2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
-        Szczecińskim
-      </li>
-      <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
-      <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
-      <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
-      <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
-    </ul>
-    <h2 id="uslugi">Usługi:</h2>
+    <div class="container">
+      <h2 id="uslugi">Usługi</h2>
 
-    <p><strong>Dla podmiotów prywatnych:</strong></p>
-    <div class="grid-4">
-      <div class="card">
-        <h3>Akty cywilne</h3>
-        <p>akty urodzenia, akty zgonu, akty zawarcia małżeństwa.</p>
+      <h3>Dla podmiotów prywatnych</h3>
+      <div class="grid-4">
+        <div class="card">
+          <h4>Akty cywilne</h4>
+          <img src="document-svgrepo-com.svg" alt="dokument" height="96" />
+          <p>Akty urodzenia, akty zgonu, akty zawarcia małżeństwa.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty samochodowe</h4>
+          <img src="car-side-svgrepo-com.svg" alt="auto" height="96" />
+          <p>Umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty sądowe</h4>
+          <img src="judicial-svgrepo-com.svg" alt="sad" height="96" />
+          <p>Pozwy, wyroki, wezwania, nakazy, pouczenia.</p>
+        </div>
+        <div class="card">
+          <h4>Decyzje administracyjne</h4>
+          <img
+            src="authority-owner-decide-chief-svgrepo-com.svg"
+            alt="decyzje"
+            height="96"
+          />
+          <p>Decyzje administracyjne indywidualne, ogólne, kontrolne.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty handlowe</h4>
+          <img
+            src="exchange-personel-svgrepo-com.svg"
+            alt="handel"
+            height="96"
+          />
+          <p>Faktury, certyfikaty pochodzenia, zwroty zakupów.</p>
+        </div>
+        <div class="card">
+          <h4>Świadectwa i dyplomy</h4>
+          <img
+            src="diploma-certificate-degree-svgrepo-com.svg"
+            alt="dyplom"
+            height="96"
+          />
+          <p>Świadectwa ukończenia szkoły, certyfikaty zawodowe.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty medyczne</h4>
+          <img src="hospital-svgrepo-com.svg" alt="szpital" height="96" />
+          <p>Karty pacjenta, wyniki badań, opinie lekarskie.</p>
+        </div>
+        <div class="card">
+          <h4>Tłumaczenia zwykłe</h4>
+          <img src="pl-svgrepo-com.svg" alt="tlumaczenie" height="96" />
+          <p>E-maile, listy osobiste, teksty literackie.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Dokumenty samochodowe</h3>
-        <p>umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu.</p>
+      <h3>Dla firm</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Umowy firmowe</h4>
+          <img
+            src="agreement-contract-a4-paper-svgrepo-com.svg"
+            alt="umowa"
+            height="96"
+          />
+          <p>Umowy dzierżawy, spółki, najmu, sprzedaży udziałów.</p>
+        </div>
+        <div class="card">
+          <h4>Akty notarialne</h4>
+          <img src="law-svgrepo-com.svg" alt="akty" height="96" />
+          <p>Akty sprzedaży nieruchomości, akty spadkowe, pożyczki i długi.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty rejestracyjne firm</h4>
+          <img
+            src="registration-counter-register-notes-registration-svgrepo-com.svg"
+            alt="rejestracja"
+            height="96"
+          />
+          <p>
+            Zgłoszenia ubezpieczeniowe, dokumenty podatkowe, rejestracja
+            przedsiębiorstwa.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Sprawozdania finansowe</h4>
+          <img
+            src="business-finance-corporate-26-svgrepo-com.svg"
+            alt="finanse"
+            height="96"
+          />
+          <p>
+            Bilans stanu, rachunek zysków i strat, rachunek zmian w kapitale
+            własnym.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Pełnomocnictwa</h4>
+          <img
+            src="business-deal-svgrepo-com.svg"
+            alt="Pelnomocnictwo"
+            height="96"
+          />
+          <p>
+            Pełnomocnictwa sądowe, medyczne, do kierowania przedsiębiorstwem.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty korporacyjne</h4>
+          <img
+            src="financial-report-svgrepo-com.svg"
+            alt="korporacyjne"
+            height="96"
+          />
+          <p>Statuty, polityka firmy, strategie biznesowe.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Dokumenty sądowe</h3>
-        <p>pozwy, wyroki, wezwania, nakazy, pouczenia.</p>
+      <h3>Tłumaczenia ustne</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Tłumaczenia biznesowe</h4>
+          <img src="business-bag-svgrepo-com.svg" alt="teczka" height="96" />
+          <p>Sprawy konferencyjne, negocjacje, szkolenia.</p>
+        </div>
+        <div class="card">
+          <h4>Rozmowy telefoniczne</h4>
+          <img src="phone-call-svgrepo-com.svg" alt="telefon" height="96" />
+          <p>
+            Dzwonienie przez tłumacza w imieniu klienta(tylko kiedy klient jest
+            na miejscu).
+          </p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty sądowe</h4>
+          <img src="courthouse-svgrepo-com.svg" alt="sąd" height="96" />
+          <p>
+            Tłumacz może pomóc zrozumieć treść i konsekwencje tych dokumentów.
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Decyzje administracyjne</h3>
-        <p>decyzje administracyjne indywidualne, ogólne, kontrolne.</p>
-      </div>
-      <div class="card">
-        <h3>Dokumenty handlowe</h3>
-        <p>faktury, certyfikaty pochodzenia, zwroty zakupów.</p>
-      </div>
-      <div class="card">
-        <h3>Świadectwa i dyplomy</h3>
-        <p>świadectwa ukończenia szkoły, certyfikaty zawodowe.</p>
-      </div>
-      <div class="card">
-        <h3>Dokumenty medyczne</h3>
-        <p>Karty pacjenta, wyniki badań, opinie lekarskie.</p>
-      </div>
-      <div class="card">
-        <h3>Tłumaczenia zwykłe</h3>
-        <p>E-maile, listy osobiste, teksty literackie.</p>
-      </div>
-    </div>
-    <p><strong>Dla firm:</strong></p>
-    <div class="grid-6">
-      <div class="card">
-        <h3>Umowy firmowe</h3>
-        <p>Umowy dzierżawy, spółki, najmu, sprzedaży udziałów.</p>
-      </div>
-      <div class="card">
-        <h3>Akty notarialne</h3>
-        <p>
-          dokumenty spadkowe, akty sprzedaży nieruchomości, pożyczki i
-          zabezpieczenia długu.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Dokumenty rejestracyjne firm</h3>
-        <p>
-          Zgłoszenia ubezpieczeniowe, dokumenty podatkowe, rejestracja
-          przedsiębiorstwa.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Sprawozdania finansowe</h3>
-        <p>
-          Bilans stanu, rachunek zysków i strat, rachunek zmian w kapitale
-          własnym.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Pełnomocnictwa</h3>
-        <p>
-          Pełnomocnictwo do reprezentowania w sądzie, medyczne, do kierowania
-          przedsiębiorstwem.
-        </p>
-      </div>
-      <div class="card">
-        <h3>dokumenty korporacyjne</h3>
-        <p>Statuty, polityka firmy, strategie biznesowe.</p>
-      </div>
-    </div>
-    <p><strong>Tłumaczenia ustne:</strong></p>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Tłumaczenia biznesowe</h3>
-        <p>sprawy konferencyjne, negocjacje, szkolenia.</p>
-      </div>
-      <div class="card">
-        <h3>rozmowy telefoniczne</h3>
-        <p>
-          Dzwonienie przez tłumacza w imieniu klienta(tylko kiedy klient jest na
-          miejscu).
-        </p>
-      </div>
-      <div class="card">
-        <h3>Dokumenty sądowe</h3>
-        <p>
-          Tłumacz może pomóc zrozumieć treść i konsekwencje tych dokumentów.
-        </p>
-      </div>
-    </div>
-    <p>
-      <strong
-        >Nie ma możliwości tłumaczeń ustnych online, ponieważ obecność
-        zleceniodawcy jest niezbędna.</strong
-      >
-    </p>
-    <hr />
-    <h2 id="cennik">Cennik:</h2>
-    <ul>
-      <li>Tłumaczenia pisemne od 30zł za stronę(1173 znaki).</li>
-      <li>Tłumaczenia ustne od 50zł za godzinę.</li>
       <p>
-        Cena tłumaczenia może być wyższa przez poziom wyspecjalizowania. Dlatego
-        każdy dokument podlega wstępnej wycenie.<br />
-        W przypadku tłumaczenia pisemnego online należy wysłać wiadomość na
-        adres E-mail podany na dole strony.<br />
+        <strong
+          >Nie ma możliwości tłumaczeń ustnych online, ponieważ obecność
+          zleceniodawcy jest niezbędna.</strong
+        >
       </p>
-    </ul>
-    <hr />
-    <h2 id="spis_uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
-    <ul>
-      <li>
-        Tłumaczenie różnorodnych umów- Ważne jest zrozumienie Kontekstu
-        Biznesowego: Umowy często odnoszą się do specyficznych kontekstów
-        biznesowych, dlatego tłumacze muszą zrozumieć, jakie są cele umowy,
-        prawa i obowiązki stron oraz konsekwencje jej naruszenia.
-      </li>
-      <li>
-        Tłumaczenie dokumentów sądowych- charakteryzuje sie prawną precyzją
-        ponieważ te dokumenty mają ogromne znaczenie prawne i błedne tłumaczenie
-        może wpłynąć na wynik procesu sądowego.
-      </li>
-      <li>
-        Tłumaczenie aktów stanu cywilnego- Pod pojęciem aktów stanu cywilnego
-        rozumie się poświadczony wyciąg lub poświadczoną kopię oryginału z
-        księgi stanu cywilnego w USC. W polskim prawie istnieją trzy rodzaje
-        aktów stanu cywilnego: akt urodzenia, akt małżeństwa i akt zgonu.
-      </li>
-      <li>
-        Dokumenty samochodowe-Charakteryzują się zazwyczaj szybkimi terminami
-        oraz niskimi cenami wykonania, głównie przez specyfike wykonania.
-      </li>
-      <li>
-        Tłumaczenia zwykłe-Tłumaczenia zwykłe (np. z takich dziedzin jak
-        reklama, literatura) nie muszą spełniać żadnych specjalnych wymogów
-        formalnych i nie muszą zostać sporządzone przez tłumacza przysięgłego.
-      </li>
-      <li>
-        Tłumaczenia konsekutywne są to tłumaczenia ustne odbywające się po
-        zakończeniu wypowiedzi mówcy. Tłumacz znajduję się obok mówcy, słucha
-        jego wypowiedzi i po jej zakończeniu odtwarza ją w całości w innym
-        języku, z reguły korzystając z notatek sporządzonych w trakcie
-        przemówienia.
-      </li>
-    </ul>
-    <hr />
-    <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
-    <p>
-      <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
-      <br />
-      <strong>Telefon:</strong> 692 516 944<br />
-      <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
-    </p>
-    <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+      <hr />
+      <h2 id="cennik">Cennik</h2>
+      <ul>
+        <li>Tłumaczenia pisemne od 30zł za stronę(1173 znaki).</li>
+        <li>Tłumaczenia ustne od 50zł za godzinę.</li>
+        <p>
+          Cena tłumaczenia może być wyższa przez poziom wyspecjalizowania.
+          Dlatego każdy dokument podlega wstępnej wycenie.<br />
+          W przypadku tłumaczenia pisemnego online należy wysłać wiadomość na
+          adres E-mail podany na dole strony.<br />
+        </p>
+      </ul>
+      <hr />
+      <h2 id="spis_uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
+      <ul>
+        <li>
+          Tłumaczenie różnorodnych umów- Ważne jest zrozumienie Kontekstu
+          Biznesowego: Umowy często odnoszą się do specyficznych kontekstów
+          biznesowych, dlatego tłumacze muszą zrozumieć, jakie są cele umowy,
+          prawa i obowiązki stron oraz konsekwencje jej naruszenia.
+        </li>
+        <li>
+          Tłumaczenie dokumentów sądowych- charakteryzuje sie prawną precyzją
+          ponieważ te dokumenty mają ogromne znaczenie prawne i błedne
+          tłumaczenie może wpłynąć na wynik procesu sądowego.
+        </li>
+        <li>
+          Tłumaczenie aktów stanu cywilnego- Pod pojęciem aktów stanu cywilnego
+          rozumie się poświadczony wyciąg lub poświadczoną kopię oryginału z
+          księgi stanu cywilnego w USC. W polskim prawie istnieją trzy rodzaje
+          aktów stanu cywilnego: akt urodzenia, akt małżeństwa i akt zgonu.
+        </li>
+        <li>
+          Dokumenty samochodowe-Charakteryzują się zazwyczaj szybkimi terminami
+          oraz niskimi cenami wykonania, głównie przez specyfike wykonania.
+        </li>
+        <li>
+          Tłumaczenia zwykłe-Tłumaczenia zwykłe (np. z takich dziedzin jak
+          reklama, literatura) nie muszą spełniać żadnych specjalnych wymogów
+          formalnych i nie muszą zostać sporządzone przez tłumacza przysięgłego.
+        </li>
+        <li>
+          Tłumaczenia konsekutywne są to tłumaczenia ustne odbywające się po
+          zakończeniu wypowiedzi mówcy. Tłumacz znajduję się obok mówcy, słucha
+          jego wypowiedzi i po jej zakończeniu odtwarza ją w całości w innym
+          języku, z reguły korzystając z notatek sporządzonych w trakcie
+          przemówienia.
+        </li>
+      </ul>
+      <ul>
+        <li>
+          2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
+          Szczecińskim
+        </li>
+        <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
+        <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
+        <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
+        <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
+      </ul>
+      <hr />
+      <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
+      <p>
+        <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
+        <br />
+        <strong>Telefon:</strong> 692 516 944<br />
+        <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
+      </p>
+      <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+    </div>
     <footer class="footer">
       <div class="copyright">© 2023. Wszelkie prawa zastrzeżone.</div>
       <nav>
