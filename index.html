@@ -168,6 +168,29 @@
       .card p {
         margin: 0;
       }
+      .table {
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .table thead tr {
+        background-color: var(--color-grey-700);
+        color: #ffffff;
+        text-align: left;
+      }
+      .table tbody tr {
+        border-bottom: 1px solid var(--color-grey-200);
+      }
+
+      .table tbody tr:nth-of-type(even) {
+        background-color: var(--color-grey-100);
+      }
+
+      .table th,
+      .table td {
+        padding: 0.75rem;
+      }
 
       .footer {
         display: flex;
@@ -248,26 +271,26 @@
       <div class="grid-4">
         <div class="card">
           <h4>Akty cywilne</h4>
-          <img src="document-svgrepo-com.svg" alt="dokument" height="96" />
+          <img
+            src="document-viewer-svgrepo-com.svg"
+            alt="dokument"
+            height="96"
+          />
           <p>Akty urodzenia, akty zgonu, akty zawarcia małżeństwa.</p>
         </div>
         <div class="card">
           <h4>Dokumenty samochodowe</h4>
-          <img src="car-side-svgrepo-com.svg" alt="auto" height="96" />
+          <img src="car-roof-box-svgrepo-com.svg" alt="auto" height="96" />
           <p>Umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu.</p>
         </div>
         <div class="card">
           <h4>Dokumenty sądowe</h4>
-          <img src="judicial-svgrepo-com.svg" alt="sad" height="96" />
+          <img src="court-gavel-svgrepo-com.svg" alt="sad" height="96" />
           <p>Pozwy, wyroki, wezwania, nakazy, pouczenia.</p>
         </div>
         <div class="card">
           <h4>Decyzje administracyjne</h4>
-          <img
-            src="authority-owner-decide-chief-svgrepo-com.svg"
-            alt="decyzje"
-            height="96"
-          />
+          <img src="director-desk-svgrepo-com.svg" alt="decyzje" height="96" />
           <p>Decyzje administracyjne indywidualne, ogólne, kontrolne.</p>
         </div>
         <div class="card">
@@ -290,12 +313,16 @@
         </div>
         <div class="card">
           <h4>Dokumenty medyczne</h4>
-          <img src="hospital-svgrepo-com.svg" alt="szpital" height="96" />
+          <img
+            src="hospital-treatment-clinic-svgrepo-com.svg"
+            alt="szpital"
+            height="128"
+          />
           <p>Karty pacjenta, wyniki badań, opinie lekarskie.</p>
         </div>
         <div class="card">
           <h4>Tłumaczenia zwykłe</h4>
-          <img src="pl-svgrepo-com.svg" alt="tlumaczenie" height="96" />
+          <img src="mail-2-svgrepo-com.svg" alt="tlumaczenie" height="96" />
           <p>E-maile, listy osobiste, teksty literackie.</p>
         </div>
       </div>
@@ -312,16 +339,18 @@
         </div>
         <div class="card">
           <h4>Akty notarialne</h4>
-          <img src="law-svgrepo-com.svg" alt="akty" height="96" />
+          <img src="scroll-svgrepo-com.svg" alt="akty" height="96" />
           <p>Akty sprzedaży nieruchomości, akty spadkowe, pożyczki i długi.</p>
         </div>
         <div class="card">
           <h4>Dokumenty rejestracyjne firm</h4>
+
           <img
             src="registration-counter-register-notes-registration-svgrepo-com.svg"
             alt="rejestracja"
             height="96"
           />
+
           <p>
             Zgłoszenia ubezpieczeniowe, dokumenty podatkowe, rejestracja
             przedsiębiorstwa.
@@ -364,14 +393,14 @@
       <div class="grid-3">
         <div class="card">
           <h4>Tłumaczenia biznesowe</h4>
-          <img src="business-bag-svgrepo-com.svg" alt="teczka" height="96" />
+          <img src="suitcase-svgrepo-com.svg" alt="teczka" height="96" />
           <p>Sprawy konferencyjne, negocjacje, szkolenia.</p>
         </div>
         <div class="card">
           <h4>Rozmowy telefoniczne</h4>
           <img src="phone-call-svgrepo-com.svg" alt="telefon" height="96" />
           <p>
-            Dzwonienie przez tłumacza w imieniu klienta(tylko kiedy klient jest
+            Dzwonienie przez tłumacza w imieniu klienta (tylko kiedy klient jest
             na miejscu).
           </p>
         </div>
@@ -383,26 +412,50 @@
           </p>
         </div>
       </div>
-      <p>
+      <!-- <p>
         <strong
           >Nie ma możliwości tłumaczeń ustnych online, ponieważ obecność
           zleceniodawcy jest niezbędna.</strong
         >
-      </p>
-      <hr />
+      </p> -->
+
       <h2 id="cennik">Cennik</h2>
+      <p>
+        Cena tłumaczenia może być wyższa w zależności od trudności tekstu,
+        branży,specjalistycznej wiedzy.
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Rodzaj tłumaczenia</th>
+            <th>Cena</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pisemne</td>
+            <td>od 30zł za stronę A4 (1173 znaki)</td>
+          </tr>
+          <tr>
+            <td>Ustne</td>
+            <td>od 50zł za godzinę</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Dostarczanie dokumentów</h3>
       <ul>
-        <li>Tłumaczenia pisemne od 30zł za stronę(1173 znaki).</li>
-        <li>Tłumaczenia ustne od 50zł za godzinę.</li>
-        <p>
-          Cena tłumaczenia może być wyższa przez poziom wyspecjalizowania.
-          Dlatego każdy dokument podlega wstępnej wycenie.<br />
-          W przypadku tłumaczenia pisemnego online należy wysłać wiadomość na
-          adres E-mail podany na dole strony.<br />
-        </p>
+        <li>
+          Dokumenty można wysłać w formie skanu lub pliku tekstowego na adres
+          E-mail.
+        </li>
+        <li>
+          Osobiście przywieźć dokumenty lub wysłać je pocztą (prosze o
+          powiadomienie przed wysłaniem)
+        </li>
       </ul>
-      <hr />
-      <h2 id="spis_uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
+      <h4>Czas realizacji</h4>
+      <p>Standardowo tłumaczenie zajmuje do 5 dni roboczych</p>
+      <h2 id="spis-uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
       <ul>
         <li>
           Tłumaczenie różnorodnych umów- Ważne jest zrozumienie Kontekstu
@@ -448,7 +501,7 @@
         <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
         <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
       </ul>
-      <hr />
+
       <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
       <p>
         <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
