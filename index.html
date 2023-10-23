@@ -151,6 +151,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: 16px;
       }
+
       .card {
         color: black;
         background-size: cover;
@@ -190,6 +191,44 @@
       .table th,
       .table td {
         padding: 0.75rem;
+      }
+      .hero {
+        padding: 2rem 0;
+      }
+      .hero h2 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin: 0;
+        margin-bottom: 2rem;
+        padding: 0;
+      }
+      .hero img {
+        max-width: 100%;
+      }
+      .hero .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero .row .column {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+      }
+      .description strong {
+        text-transform: uppercase;
+        color: var(--color-grey-800);
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 1px;
       }
 
       .footer {
@@ -420,7 +459,16 @@
       </p> -->
 
       <h2 id="cennik">Cennik</h2>
-      <p>Podano ceny Brutto w PLN, bez doliczonego Vatu.</p>
+
+      <p>
+        Cena jest naliczana za każdą rozpoczętą strone tekstu, dzięki czemu
+        klient płaci za rzeczywistą ilość tekstu.
+      </p>
+      <p>
+        Nie naliczamy dopłat za "trudność tekstu" czy słownictwo
+        specjalistyczne.
+      </p>
+      <p>Podano ceny Brutto w PLN, nie doliczamy podatku VAT.</p>
       <table class="table">
         <thead>
           <tr>
@@ -435,23 +483,23 @@
             <td rowspan="2">zwykłe</td>
             <td>polski > niemiecki</td>
             <td>+50%</td>
-            <td>55zł za (1600 znaków)</td>
+            <td>55zł za 1600 znaków</td>
           </tr>
           <tr>
             <td>niemiecki > polski</td>
             <td>+50%</td>
-            <td>48zł za stronę A4 (1600 znaków)</td>
+            <td>48zł za 1600 znaków</td>
           </tr>
           <tr>
             <td rowspan="2">Przysięgłe</td>
             <td>polski > niemiecki</td>
             <td>+100%</td>
-            <td>45,11zł za (1125 znaków)</td>
+            <td>45,11 zł za 1125 znaków</td>
           </tr>
           <tr>
             <td>niemiecki > polski</td>
             <td>+100%</td>
-            <td>34,5zł za (1125 znaków)</td>
+            <td>34,50 zł za 1125 znaków</td>
           </tr>
           <tr>
             <td rowspan="2">Ustne</td>
@@ -468,17 +516,34 @@
       </table>
 
       <h3>Dostarczanie dokumentów</h3>
-      <ul>
-        <li>
-          Dokumenty można wysłać w formie skanu lub pliku tekstowego na adres
-          E-mail.
-        </li>
-        <li>
-          Osobiście przywieźć dokumenty lub wysłać je pocztą (prosze o
-          powiadomienie przed wysłaniem oraz kiedy klient chce również odebrać
-          dokumenty pocztą, naliczana jest dodatkowa opłata 12zł.)
-        </li>
-      </ul>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Dostawa osobista</h4>
+          <img src="delivery-svgrepo-com.svg" alt="dostawa" height="96" />
+          <p>Dokumenty do przetłumaczenia można dostarczyć na adres firmy</p>
+        </div>
+        <div class="card">
+          <h4>Poczta</h4>
+          <img
+            src="mailbox-envelope-post-office-svgrepo-com.svg"
+            alt="wysylka"
+            height="96"
+          />
+          <p>
+            Jest opcja wysłki dokumentów za dodatkową opłatą 12zł (należy
+            uprzedzić przed wysłaniem)
+          </p>
+        </div>
+        <div class="card">
+          <h4>E-mail</h4>
+          <img
+            src="email-address-sign-at-inbox-svgrepo-com.svg"
+            alt="mail"
+            height="96"
+          />
+          <p>Można wysłać plik tekstowy lub scan dokumentu</p>
+        </div>
+      </div>
       <h4>Czas realizacji</h4>
       <p>
         Standardowo tłumaczenie pisemne zajmuje od 2 do 5 dni roboczych. Tryb
@@ -539,15 +604,29 @@
         <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
         <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
       </ul>
+      <div class="hero">
+        <h2 id="kontakt">Kontakt</h2>
+        <div class="row">
+          <img src="woman-working_2400x2400.webp" alt="woman" />
+          <div class="column">
+            <div class="description">
+              <strong>Adres firmy</strong> ul. Rzepińska 27 <br />
+              69-220 Ośno Lubuskie
+            </div>
 
-      <h2 id="kontakt">Skontaktuj sie ze mną!</h2>
-      <p>
-        <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie
-        <br />
-        <strong>Telefon:</strong> 692 516 944<br />
-        <strong>Adres E-mail</strong> Izagalosz@wp.pl <br />
-      </p>
-      <div><strong>otwarte od pon do pt od 8 do 15</strong></div>
+            <div class="description">
+              <strong>Numer telefonu</strong>+48 692 516 944
+            </div>
+            <div class="description">
+              <strong>Adres e-mail</strong> izagalosz@wp.pl
+            </div>
+
+            <div class="description">
+              <strong>Godziny otwarcia</strong> pon-pt 8:00-15:00
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="footer">
       <div class="copyright">© 2023. Wszelkie prawa zastrzeżone.</div>
