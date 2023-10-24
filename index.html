@@ -23,6 +23,14 @@
         margin: 0;
         padding: 0;
       }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        position: relative;
+      }
       h2 {
         font-size: 2rem;
       }
@@ -97,6 +105,10 @@
       }
       .banner p {
         font-size: 18px;
+      }
+      span[id] {
+        position: absolute;
+        top: -124px;
       }
       .logo-container {
         display: flex;
@@ -192,6 +204,26 @@
       .table td {
         padding: 0.75rem;
       }
+      .timeline {
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .timeline .year {
+        text-align: center;
+      }
+      .timeline .year h5 {
+        margin: 0;
+        padding: 0;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .timeline .year p {
+        color: var(--color-grey-700);
+        margin: 0;
+        padding: 0;
+      }
+
       .hero {
         padding: 2rem 0;
       }
@@ -284,9 +316,9 @@
         <a href="#kontakt">Kontakt</a>
       </nav>
     </header>
-    <div class="banner">
+    <div class="banner" id="start">
       <div class="container">
-        <h1 id="start">
+        <h1>
           Tłumacz Przysięgły<br />
           Języka Niemieckiego
         </h1>
@@ -304,7 +336,7 @@
       <a class="button" href="mailto:izagalosz@wp.pl">izagalosz@wp.pl</a>
     </div>
     <div class="container">
-      <h2 id="uslugi">Usługi</h2>
+      <h2>Usługi <span id="uslugi"></span></h2>
 
       <h3>Dla podmiotów prywatnych</h3>
       <div class="grid-4">
@@ -458,17 +490,8 @@
         >
       </p> -->
 
-      <h2 id="cennik">Cennik</h2>
+      <h2>Cennik <span id="cennik"></span></h2>
 
-      <p>
-        Cena jest naliczana za każdą rozpoczętą strone tekstu, dzięki czemu
-        klient płaci za rzeczywistą ilość tekstu.
-      </p>
-      <p>
-        Nie naliczamy dopłat za "trudność tekstu" czy słownictwo
-        specjalistyczne.
-      </p>
-      <p>Podano ceny Brutto w PLN, nie doliczamy podatku VAT.</p>
       <table class="table">
         <thead>
           <tr>
@@ -515,12 +538,24 @@
         </tbody>
       </table>
 
-      <h3>Dostarczanie dokumentów</h3>
+      <p>
+        Cena jest naliczana za ilość znaków znajdujących się w tekście. Trudność
+        tekstu lub obecność słownictwa specjalistycznego nie ma wpływu na cenę.
+        Podano ceny brutto w PLN, nie doliczamy podatku VAT.
+      </p>
+      <p>
+        Ceny tłumaczenia przysięgłego są uwzględnione w
+        <a
+          href="https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000261/O/D20210261.pdf"
+          >rozporządzeniu Ministra sprawiedliwości.</a
+        >
+      </p>
+      <h3>Sposób dostarczania dokumentów</h3>
       <div class="grid-3">
         <div class="card">
           <h4>Dostawa osobista</h4>
           <img src="delivery-svgrepo-com.svg" alt="dostawa" height="96" />
-          <p>Dokumenty do przetłumaczenia można dostarczyć na adres firmy</p>
+          <p>Dokumenty do przetłumaczenia można dostarczyć na adres firmy.</p>
         </div>
         <div class="card">
           <h4>Poczta</h4>
@@ -530,8 +565,8 @@
             height="96"
           />
           <p>
-            Jest opcja wysłki dokumentów za dodatkową opłatą 12zł (należy
-            uprzedzić przed wysłaniem)
+            Istnieje możliwość wysłania dokumentów z potwierdzeniem nadania i
+            odbioru. Prosimy uprzedzić przed wysłaniem.
           </p>
         </div>
         <div class="card">
@@ -541,24 +576,19 @@
             alt="mail"
             height="96"
           />
-          <p>Można wysłać plik tekstowy lub scan dokumentu</p>
+          <p>Można wysłać plik tekstowy lub skan dokumentu.</p>
         </div>
       </div>
-      <h4>Czas realizacji</h4>
+      <h3>Czas realizacji</h3>
       <p>
-        Standardowo tłumaczenie pisemne zajmuje od 2 do 5 dni roboczych. Tryb
-        ekspresowy oznacza że tłumaczenie może zostać wykonane w ten sam lub na
-        następny dzień roboczy. Przed tłumaczeniem ustnym należy się wcześniej
-        umówić i dogadać forme w jakiej ma ono zostać wykonane.
+        Standardowo tłumaczenie pisemne zajmuje
+        <strong>od 2 do 5 dni</strong> roboczych. Tryb ekspresowy oznacza że
+        tłumaczenie może zostać wykonane w ten sam lub na następny dzień
+        roboczy. Przed tłumaczeniem ustnym należy się wcześniej umówić i dogadać
+        forme w jakiej ma ono zostać wykonane.
       </p>
-      <p>
-        Ceny tłumaczenia przysięgłego są uwzględnione w
-        <a
-          href="https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000261/O/D20210261.pdf"
-          >rozporządzeniu Ministra sprawiedliwości.</a
-        >
-      </p>
-      <h2 id="spis-uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
+
+      <!-- <h2 id="spis-uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
       <ul>
         <li>
           Tłumaczenie różnorodnych umów- Ważne jest zrozumienie Kontekstu
@@ -593,19 +623,26 @@
           języku, z reguły korzystając z notatek sporządzonych w trakcie
           przemówienia.
         </li>
-      </ul>
-      <ul>
-        <li>
-          2002 r. ukończone studia magisterskie z Germanistyki na Uniwersytecie
-          Szczecińskim
-        </li>
-        <li>2002 r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
-        <li>2004 r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
-        <li>2019 r. zdobyty tytuł nauczyciela dyplomowanego</li>
-        <li>Daje to łącznie prawie 20 lat stażu jako tłumacz przysięgły</li>
-      </ul>
+      </ul> -->
+      <div class="timeline">
+        <div class="year">
+          <h5>2002</h5>
+          <p>
+            Zdobycie tytułu magistra z Germanistyki. Rozpoczęcie pracy w szkole.
+          </p>
+        </div>
+        <div class="year">
+          <h5>2004</h5>
+          <p>Zdobycie tytułu tłumacza przysięgłego języka niemieckiego.</p>
+        </div>
+        <div class="year">
+          <h5>2019</h5>
+          <p>Zdobycie tytułu nauczyciela dyplomowanego.</p>
+        </div>
+      </div>
+
       <div class="hero">
-        <h2 id="kontakt">Kontakt</h2>
+        <h2>Kontakt <span id="kontakt"></span></h2>
         <div class="row">
           <img src="woman-working_2400x2400.webp" alt="woman" />
           <div class="column">
