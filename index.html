@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>tłumacz przysiegły</title>
+
     <style>
       :root {
         --color-grey-100: #e6e6e6;
@@ -48,6 +49,7 @@
       .container {
         max-width: 1024px;
         margin: 0 auto;
+        padding: 0 1rem;
       }
       .header {
         position: fixed;
@@ -64,13 +66,21 @@
         border-bottom: 1px solid var(--color-grey-300);
         backdrop-filter: blur(8px);
         background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
       }
+      @media screen and (max-width: 767px) {
+        .header {
+          display: block;
+        }
+      }
+
       .navigation {
         text-transform: uppercase;
         text-align: center;
         display: flex;
         gap: 4rem;
       }
+
       .navigation a {
         transition: background-color 0.2s ease, color 0.2s ease;
         display: inline-block;
@@ -83,6 +93,20 @@
       .navigation a:hover {
         background-color: rgba(40, 38, 38, 0.723);
         color: white;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1199px) {
+        .navigation {
+          gap: 2rem;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        .navigation {
+          gap: 0.5rem;
+          justify-content: space-between;
+        }
+        .navigation a {
+          font-size: 14px;
+        }
       }
       .banner {
         display: flex;
@@ -106,6 +130,19 @@
       .banner p {
         font-size: 18px;
       }
+      @media screen and (max-width: 767px) {
+        .banner {
+          display: block;
+          height: auto;
+          padding: 96px 16px;
+        }
+        .banner h1 {
+          font-size: 26px;
+        }
+        .banner p {
+          font-size: 16px;
+        }
+      }
       span[id] {
         position: absolute;
         top: -124px;
@@ -127,8 +164,12 @@
         flex-direction: column;
       }
       .logo {
-        text-shadow: 16px;
         font-size: larger;
+      }
+      @media screen and (max-width: 767px) {
+        .logo {
+          grid-template-columns: 1fr 1fr;
+        }
       }
       .button {
         text-decoration: none;
@@ -157,11 +198,21 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 16px;
       }
+      @media screen and (max-width: 767px) {
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+      }
 
       .grid-3 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 16px;
+      }
+      @media screen and (max-width: 767px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
       }
 
       .card {
@@ -223,6 +274,11 @@
         margin: 0;
         padding: 0;
       }
+      @media screen and (max-width: 767px) {
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+      }
 
       .hero {
         padding: 2rem 0;
@@ -248,6 +304,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+      @media screen and (max-width: 767px) {
+        .hero img {
+          display: none;
+        }
+        .hero .row {
+          grid-template-columns: 1fr;
+        }
       }
       .description {
         display: flex;
@@ -280,6 +344,7 @@
         justify-content: right;
         align-items: center;
       }
+
       .footer nav a {
         transition: background-color 0.2s ease, color 0.2s ease;
         display: inline-block;
@@ -296,13 +361,21 @@
       .footer .copyright {
         font-size: 12px;
       }
+      @media screen and (max-width: 767px) {
+        .footer nav {
+          display: none;
+        }
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
     </style>
   </head>
   <body>
     <header class="header">
       <div class="logo-container">
         <a href="/" class="logo">
-          <img src="logo.webp" alt="Logo" height="64" width="64" />
+          <img src="logo.webp" alt="Logo" height="48" width="48" />
         </a>
         <div class="name">
           <strong>Izabela Gałosz</strong>
@@ -324,9 +397,9 @@
         </h1>
 
         <p>
-          Tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która
-          upoważnia prawnie do tłumaczenia. W połączeniu z kompleksową wiedzą,
-          wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
+          Tłumacz przysięgły jest osobą która dostaje specjalną pieczęć
+          upoważniającą prawnie do tłumaczenia. W połączeniu z kompleksową
+          wiedzą, wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
           wiarygodnością czyni mnie jako tłumacza od 2004 roku idealnym
           kandydatem do powierzenia dokumentów. Zapewniamy poufność informacji
           oraz terminowość.
@@ -471,8 +544,8 @@
           <h4>Rozmowy telefoniczne</h4>
           <img src="phone-call-svgrepo-com.svg" alt="telefon" height="96" />
           <p>
-            Dzwonienie przez tłumacza w imieniu klienta (tylko kiedy klient jest
-            na miejscu).
+            Dzwonienie przez tłumacza w imieniu klienta. Dostępne tylko kiedy
+            klient jest na miejscu.
           </p>
         </div>
         <div class="card">
@@ -495,44 +568,37 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Rodzaj tłumaczenia</th>
+            <th>Tłumaczenie</th>
             <th>Język</th>
-            <th>Tryb ekspresowy</th>
             <th>Cena</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td rowspan="2">zwykłe</td>
-            <td>polski > niemiecki</td>
-            <td>+50%</td>
-            <td>55zł za 1600 znaków</td>
+            <td rowspan="2">Zwykłe</td>
+            <td class="nowrap">PL > DE</td>
+            <td>55zł za 1600 znaków (ekspres +50%)</td>
           </tr>
           <tr>
-            <td>niemiecki > polski</td>
-            <td>+50%</td>
-            <td>48zł za 1600 znaków</td>
+            <td class="nowrap">DE > PL</td>
+            <td>48zł za 1600 znaków (ekspres +50%)</td>
           </tr>
           <tr>
             <td rowspan="2">Przysięgłe</td>
-            <td>polski > niemiecki</td>
-            <td>+100%</td>
-            <td>45,11 zł za 1125 znaków</td>
+            <td class="nowrap">PL > DE</td>
+            <td>45,11 zł za 1125 znaków (ekspres +100%)</td>
           </tr>
           <tr>
-            <td>niemiecki > polski</td>
-            <td>+100%</td>
-            <td>34,50 zł za 1125 znaków</td>
+            <td class="nowrap">DE > PL</td>
+            <td>34,50 zł za 1125 znaków (ekspres +100%)</td>
           </tr>
           <tr>
             <td rowspan="2">Ustne</td>
-            <td>polski > niemiecki</td>
-            <td>-</td>
+            <td class="nowrap">PL > DE</td>
             <td>70zł za godzinę</td>
           </tr>
           <tr>
-            <td>Niemiecki > polski</td>
-            <td>-</td>
+            <td class="nowrap">DE > PL</td>
             <td>70zł za godzinę</td>
           </tr>
         </tbody>
