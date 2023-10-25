@@ -1,86 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>tłumacz przysiegły</title>
+
     <style>
-        
+      :root {
+        --color-grey-100: #e6e6e6;
+        --color-grey-200: #cccccc;
+        --color-grey-300: #b3b3b3;
+        --color-grey-400: #999999;
+        --color-grey-500: #808080;
+        --color-grey-600: #666666;
+        --color-grey-700: #4d4d4d;
+        --color-grey-800: #333333;
+        --color-grey-900: #1a1a1a;
+      }
+      html,
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: -0.1px;
+        margin: 0;
+        padding: 0;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        position: relative;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        margin: 1rem 0;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        height: 96px;
+        width: 100%;
+        padding: 16px;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--color-grey-300);
+        backdrop-filter: blur(8px);
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+      }
+      @media screen and (max-width: 767px) {
+        .header {
+          display: block;
+        }
+      }
+
+      .navigation {
+        text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        gap: 4rem;
+      }
+
+      .navigation a {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 4px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+      .navigation a:hover {
+        background-color: rgba(40, 38, 38, 0.723);
+        color: white;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1199px) {
+        .navigation {
+          gap: 2rem;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        .navigation {
+          gap: 0.5rem;
+          justify-content: space-between;
+        }
+        .navigation a {
+          font-size: 14px;
+        }
+      }
+      .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(banner1.webp);
+        height: 100dvh;
+        width: 100%;
+        background-size: cover;
+        position: static;
+        text-align: justify;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        padding: 16px 0px 0px 0px;
+      }
+      .banner h1 {
+        font-size: 48px;
+      }
+      .banner p {
+        font-size: 18px;
+      }
+      @media screen and (max-width: 767px) {
+        .banner {
+          display: block;
+          height: auto;
+          padding: 96px 16px;
+        }
+        .banner h1 {
+          font-size: 26px;
+        }
+        .banner p {
+          font-size: 16px;
+        }
+      }
+      span[id] {
+        position: absolute;
+        top: -124px;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo-container small {
+        color: var(--color-grey-100);
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 1px;
+        font-size: 11px;
+      }
+      .logo-container .name {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo {
+        font-size: larger;
+      }
+      @media screen and (max-width: 767px) {
+        .logo {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .button {
+        text-decoration: none;
+        display: block;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+        color: black;
+        font-size: 20px;
+        line-height: 1;
+        padding: 12px 32px;
+        border-radius: 50px;
+        background: white;
+        transition: all 0.2s ease;
+      }
+      .button.primary {
+        background: #fcaf01;
+        color: white;
+      }
+      .button + .button {
+        margin-top: 8px;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 16px;
+      }
+      @media screen and (max-width: 767px) {
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+      @media screen and (max-width: 767px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        color: black;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        height: 256px;
+        border: 1px solid var(--color-grey-200);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px #cccccc;
+      }
+      .card h4 {
+        margin: 0;
+        line-height: 1;
+      }
+      .card p {
+        margin: 0;
+      }
+      .table {
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .table thead tr {
+        background-color: #fcaf01;
+        color: #ffffff;
+        text-align: left;
+      }
+      .table tbody tr {
+        border-bottom: 1px solid var(--color-grey-200);
+      }
+
+      .table tbody tr:nth-of-type(even) {
+        background-color: #feefcc;
+      }
+
+      .table th,
+      .table td {
+        padding: 0.75rem;
+      }
+      .timeline {
+        background-color: #fcaf01;
+        color: white;
+        padding: 4rem 0;
+      }
+
+      .timeline .row {
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .timeline h2 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin: 0;
+
+        padding: 0;
+      }
+      .timeline .year {
+        text-align: center;
+      }
+      .timeline .year h5 {
+        margin: 0;
+        padding: 0;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .timeline .year p {
+        color: var(--color-grey-100);
+        margin: 0;
+        padding: 0;
+      }
+      @media screen and (max-width: 767px) {
+        .timeline .row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hero {
+        padding: 2rem 0;
+      }
+      .hero h2 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin: 0;
+        margin-bottom: 2rem;
+        padding: 0;
+      }
+      .hero img {
+        max-width: 100%;
+      }
+      .hero .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero .row .column {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      @media screen and (max-width: 767px) {
+        .hero img {
+          display: none;
+        }
+        .hero .row {
+          grid-template-columns: 1fr;
+        }
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+      }
+      .description strong {
+        text-transform: uppercase;
+        color: var(--color-grey-800);
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 1px;
+      }
+
+      .footer {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        background-color: black;
+        justify-content: space-between;
+        align-content: center;
+        color: white;
+        padding: 1rem 1rem;
+      }
+      .footer nav {
+        text-transform: uppercase;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: right;
+        align-items: center;
+      }
+
+      .footer nav a {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+      .footer nav a:hover {
+        text-decoration: underline;
+      }
+
+      .footer .copyright {
+        font-size: 12px;
+      }
+      @media screen and (max-width: 767px) {
+        .footer nav {
+          display: none;
+        }
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
     </style>
-</head>
-<body>
-    <div><strong>otwarte od pon do pt od 8 do 15</strong></div> 
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo">
+          <img src="logo.webp" alt="Logo" height="48" width="48" />
+        </a>
+        <div class="name">
+          <strong>Izabela Gałosz</strong>
+          <small>tłumacz przysięgły</small>
+        </div>
+      </div>
+      <nav class="navigation">
+        <a href="#start">Start</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+    <div class="banner" id="start">
+      <div class="container">
+        <h1>
+          Tłumacz Przysięgły<br />
+          Języka Niemieckiego
+        </h1>
 
-    <h1>Izabela Gałosz Tłumacz Przysięgły Języka Niemieckiego</h1>
-    
-        <ul>
-            <li>2002r. ukończone studia magisterskie z Germanistyki na Uniwersytecie Szczecińskim</li>
-            <li>2002r. rozpoczęcie nauczania języka niemieckiego w szkole</li>
-            <li>2004r. zdobyty tytuł tłumacza przysięgłego języka niemieckiego</li>
-            <li>2019r. tytuł nauczyciela dyplomowanego</li>
-            <li>co daje łącznie prawie 20 lat stażu</li>
-        </ul>
-    <h3>praca tłumacza</h3>
-    <p>
-     tłumacz przysięgły jest osobą która dostaje specjalną pieczęć która upoważnia prawnie do tłumaczenia. Co w połączeniu z kompleksową wiedzą, wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy wiarygodnością czyni mnie jako tłumacza od 2004r. idealnym kandydatem do powierzenia dokumentów.<br>
-     W pracy tłumacza liczy się również poufność informacji oraz terminowość, są to rzeczy których trzymam się niezmiennie od prawie 20 lat.
-    </p>
-    <hr>
-    <h2>Usługi:</h2>   
-        <p><strong>Dla podmiotów prywatnych:</strong> </p><br>
-        <ul>
-        <li>Akty urzędu stanu cywilnego(akty urodzenia, zgonu,zawarcia małżeństwa).</li>
-        <li>Dokumenty samochodowe(umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu).</li>
-        <li>Dokumenty sądowe(pozwy, wyroki, wezwania, nakazy, pouczenia).</li>
-        <li>Decyzje administracyjne.</li>
-        <li>Dokumenty handlowe(faktury).</li>
-        <li>Świadectwa i dyplomy.</li>
-        <li>Dokumenty rozwodowe.</li>
-        <li>Tłumaczenia zwykłe.</li>
-        </ul>
-        <p><strong>Dla firm:</strong></p><br>
-        <ul>
-        <li>Świadectwa i umowy o prace.</li>
-        <li>Akty notarialne.</li> 
-        <li>Dokumenty rejestracyjne firm.</li>
-        <li>Sprawozdania finansowe.</li>
-        <li>Różne rodzaje umów np. (umowy spółki, dzierżawy , najmu , sprzedaży udziałów, itd.)</li>
-        <li>Pełnomocnictwa.</li>
-        </ul>
-        <p><strong>Tłumaczenia ustne:</strong></p><br>
-        <ul>
-        <li>Tłumaczenia konsekutywne i symultaniczne w przykałdowych formach:</li>
-        <li>Możliwość zadzwonienia przez tłumacza w imieniu zleceniodawcy.</li>
-        <li>Tłumaczenie w sprawach biznesowych, konferencyjnych, szkoleń, negocjacji itd.</li>
-        </ul>
-       <p><strong>Nie ma możliwości tłumaczeń ustnych online, ponieważ obecność zleceniodawcy jest niezbędna.</strong></p>  <br>
-        <hr>
-    <h2>Cennik:</h2>
-    <ul>
-        <li>Tłumaczenia pisemne od 30zł za stronę(1173 znaki).</li>
-        <li>Tłumaczenia ustne 50zł za godzinę.</li>
         <p>
-        Cena tłumaczenia może być wyższa przez poziom wyspecjalizowania. Dlatego każdy dokument podlega wstępnej wycenie.<br>
-         W przypadku tłumaczenia online należy wysłać wiadomość na adres E-mail podany na dole strony.<br>
+          Tłumacz przysięgły jest osobą która dostaje specjalną pieczęć
+          upoważniającą prawnie do tłumaczenia. W połączeniu z kompleksową
+          wiedzą, wyspecjalizowanym słownictwem oraz wyrobioną przez lata pracy
+          wiarygodnością czyni mnie jako tłumacza od 2004 roku idealnym
+          kandydatem do powierzenia dokumentów. Zapewniamy poufność informacji
+          oraz terminowość.
         </p>
-    </ul>
-    <hr>
-    <h2>Szczegółowy opis rodzajów tłumaczeń.</h2>
-    <ul>
-        <li>Tłumaczenie różnorodnych umów- Zrozumienie Kontekstu Biznesowego: Umowy często odnoszą się do specyficznych kontekstów biznesowych, dlatego tłumacze muszą zrozumieć, jakie są cele umowy, prawa i obowiązki stron oraz konsekwencje jej naruszenia.</li>
-        <li>Tłumaczenie dokumentów sądowych- charakteryzuje sie prawną precyzją ponieważ te dokumenty mają ogromne znaczenie prawne i błedne tłumaczenie może wpłynąć na wynik procesu sądowego.</li>
-        <li>Tłumaczenie aktów stanu cywilnego- Pod pojęciem aktów stanu cywilnego rozumie się poświadczony wyciąg lub poświadczoną kopię oryginału z księgi stanu cywilnego w USC. W polskim prawie istnieją trzy rodzaje aktów stanu cywilnego: akt urodzenia, akt małżeństwa i akt zgonu.</li>
-        <li>Dokumenty samochodowe-Charakteryzują się zazwyczaj szybkimi terminami oraz niskimi cenami wykonania, głównie przez specyfike wykonania.</li>
-        <li>Tłumaczenia zwykłe-Tłumaczenia zwykłe (np. z takich dziedzin jak reklama, literatura) nie muszą spełniać żadnych specjalnych wymogów formalnych i nie muszą zostać sporządzone przez tłumacza przysięgłego.</li>
-        <li>Tłumaczenia konsekutywne są to tłumaczenia ustne odbywające się po zakończeniu wypowiedzi mówcy. Tłumacz znajduję się obok mówcy, słucha jego wypowiedzi i po jej zakończeniu odtwarza ją w całości w innym języku, z reguły korzystając z notatek sporządzonych w trakcie przemówienia.</li>
-    </ul>
-    <hr>
-    <h2>Skontaktuj sie ze mną!</h2>
-   <p>
-    <strong>Adres Firmy</strong> ul. Rzepińska 27 69-220 Ośno Lubuskie <br>
-    <strong>Telefon:</strong> 692 516 944<br>
-    <strong>Adres E-mail</strong> Izagalosz@wp.pl <br>
+      </div>
+      <a class="button primary" href="tel:+48692516944">+48 692 516 944</a>
+      <a class="button" href="mailto:izagalosz@wp.pl">izagalosz@wp.pl</a>
+    </div>
+    <div class="container">
+      <h2>Usługi <span id="uslugi"></span></h2>
 
-   </p>
-</body>
+      <h3>Dla podmiotów prywatnych</h3>
+      <div class="grid-4">
+        <div class="card">
+          <h4>Akty cywilne</h4>
+          <img
+            src="document-viewer-svgrepo-com.svg"
+            alt="dokument"
+            height="96"
+          />
+          <p>Akty urodzenia, akty zgonu, akty zawarcia małżeństwa.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty samochodowe</h4>
+          <img src="car-roof-box-svgrepo-com.svg" alt="auto" height="96" />
+          <p>Umowa kupna-sprzedaży, dowód rejestracyjny, karta pojazdu.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty sądowe</h4>
+          <img src="court-gavel-svgrepo-com.svg" alt="sad" height="96" />
+          <p>Pozwy, wyroki, wezwania, nakazy, pouczenia.</p>
+        </div>
+        <div class="card">
+          <h4>Decyzje administracyjne</h4>
+          <img src="director-desk-svgrepo-com.svg" alt="decyzje" height="96" />
+          <p>Decyzje administracyjne indywidualne, ogólne, kontrolne.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty handlowe</h4>
+          <img
+            src="exchange-personel-svgrepo-com.svg"
+            alt="handel"
+            height="96"
+          />
+          <p>Faktury, certyfikaty pochodzenia, zwroty zakupów.</p>
+        </div>
+        <div class="card">
+          <h4>Świadectwa i dyplomy</h4>
+          <img
+            src="diploma-certificate-degree-svgrepo-com.svg"
+            alt="dyplom"
+            height="96"
+          />
+          <p>Świadectwa ukończenia szkoły, certyfikaty zawodowe.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty medyczne</h4>
+          <img
+            src="hospital-treatment-clinic-svgrepo-com.svg"
+            alt="szpital"
+            height="128"
+          />
+          <p>Karty pacjenta, wyniki badań, opinie lekarskie.</p>
+        </div>
+        <div class="card">
+          <h4>Tłumaczenia zwykłe</h4>
+          <img src="mail-2-svgrepo-com.svg" alt="tlumaczenie" height="96" />
+          <p>E-maile, listy osobiste, teksty literackie.</p>
+        </div>
+      </div>
+      <h3>Dla firm</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Umowy firmowe</h4>
+          <img
+            src="agreement-contract-a4-paper-svgrepo-com.svg"
+            alt="umowa"
+            height="96"
+          />
+          <p>Umowy dzierżawy, spółki, najmu, sprzedaży udziałów.</p>
+        </div>
+        <div class="card">
+          <h4>Akty notarialne</h4>
+          <img src="scroll-svgrepo-com.svg" alt="akty" height="96" />
+          <p>Akty sprzedaży nieruchomości, akty spadkowe, pożyczki i długi.</p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty rejestracyjne firm</h4>
+
+          <img
+            src="registration-counter-register-notes-registration-svgrepo-com.svg"
+            alt="rejestracja"
+            height="96"
+          />
+
+          <p>
+            Zgłoszenia ubezpieczeniowe, dokumenty podatkowe, rejestracja
+            przedsiębiorstwa.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Sprawozdania finansowe</h4>
+          <img
+            src="business-finance-corporate-26-svgrepo-com.svg"
+            alt="finanse"
+            height="96"
+          />
+          <p>
+            Bilans stanu, rachunek zysków i strat, rachunek zmian w kapitale
+            własnym.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Pełnomocnictwa</h4>
+          <img
+            src="business-deal-svgrepo-com.svg"
+            alt="Pelnomocnictwo"
+            height="96"
+          />
+          <p>
+            Pełnomocnictwa sądowe, medyczne, do kierowania przedsiębiorstwem.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty korporacyjne</h4>
+          <img
+            src="financial-report-svgrepo-com.svg"
+            alt="korporacyjne"
+            height="96"
+          />
+          <p>Statuty, polityka firmy, strategie biznesowe.</p>
+        </div>
+      </div>
+      <h3>Tłumaczenia ustne</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Tłumaczenia biznesowe</h4>
+          <img src="suitcase-svgrepo-com.svg" alt="teczka" height="96" />
+          <p>Sprawy konferencyjne, negocjacje, szkolenia.</p>
+        </div>
+        <div class="card">
+          <h4>Rozmowy telefoniczne</h4>
+          <img src="phone-call-svgrepo-com.svg" alt="telefon" height="96" />
+          <p>
+            Dzwonienie przez tłumacza w imieniu klienta. Dostępne tylko kiedy
+            klient jest na miejscu.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Dokumenty sądowe</h4>
+          <img src="courthouse-svgrepo-com.svg" alt="sąd" height="96" />
+          <p>
+            Tłumacz może pomóc zrozumieć treść i konsekwencje tych dokumentów.
+          </p>
+        </div>
+      </div>
+      <!-- <p>
+        <strong
+          >Nie ma możliwości tłumaczeń ustnych online, ponieważ obecność
+          zleceniodawcy jest niezbędna.</strong
+        >
+      </p> -->
+
+      <h2>Cennik <span id="cennik"></span></h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tłumaczenie</th>
+            <th>Język</th>
+            <th>Cena</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">Zwykłe</td>
+            <td class="nowrap">PL > DE</td>
+            <td>55zł za 1600 znaków (ekspres +50%)</td>
+          </tr>
+          <tr>
+            <td class="nowrap">DE > PL</td>
+            <td>48zł za 1600 znaków (ekspres +50%)</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Przysięgłe</td>
+            <td class="nowrap">PL > DE</td>
+            <td>45,11 zł za 1125 znaków (ekspres +100%)</td>
+          </tr>
+          <tr>
+            <td class="nowrap">DE > PL</td>
+            <td>34,50 zł za 1125 znaków (ekspres +100%)</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Ustne</td>
+            <td class="nowrap">PL > DE</td>
+            <td>70zł za godzinę</td>
+          </tr>
+          <tr>
+            <td class="nowrap">DE > PL</td>
+            <td>70zł za godzinę</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Cena jest naliczana za ilość znaków znajdujących się w tekście. Trudność
+        tekstu lub obecność słownictwa specjalistycznego nie ma wpływu na cenę.
+        Podano ceny brutto w PLN, nie doliczamy podatku VAT.
+      </p>
+      <p>
+        Ceny tłumaczenia przysięgłego są uwzględnione w
+        <a
+          href="https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000261/O/D20210261.pdf"
+          >rozporządzeniu Ministra sprawiedliwości.</a
+        >
+      </p>
+      <h3>Sposób dostarczania dokumentów</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Dostawa osobista</h4>
+          <img src="delivery-svgrepo-com.svg" alt="dostawa" height="96" />
+          <p>Dokumenty do przetłumaczenia można dostarczyć na adres firmy.</p>
+        </div>
+        <div class="card">
+          <h4>Poczta</h4>
+          <img
+            src="mailbox-envelope-post-office-svgrepo-com.svg"
+            alt="wysylka"
+            height="96"
+          />
+          <p>
+            Istnieje możliwość wysłania dokumentów z potwierdzeniem nadania i
+            odbioru. Prosimy uprzedzić przed wysłaniem.
+          </p>
+        </div>
+        <div class="card">
+          <h4>E-mail</h4>
+          <img
+            src="email-address-sign-at-inbox-svgrepo-com.svg"
+            alt="mail"
+            height="96"
+          />
+          <p>Można wysłać plik tekstowy lub skan dokumentu.</p>
+        </div>
+      </div>
+      <h3>Czas realizacji</h3>
+      <p>
+        Standardowo tłumaczenie pisemne zajmuje
+        <strong>od 2 do 5 dni</strong> roboczych. Tryb ekspresowy oznacza że
+        tłumaczenie może zostać wykonane w ten sam lub na następny dzień
+        roboczy. Przed tłumaczeniem ustnym należy się wcześniej umówić i dogadać
+        forme w jakiej ma ono zostać wykonane.
+      </p>
+
+      <!-- <h2 id="spis-uslug">Szczegółowy opis rodzajów tłumaczeń.</h2>
+      <ul>
+        <li>
+          Tłumaczenie różnorodnych umów- Ważne jest zrozumienie Kontekstu
+          Biznesowego: Umowy często odnoszą się do specyficznych kontekstów
+          biznesowych, dlatego tłumacze muszą zrozumieć, jakie są cele umowy,
+          prawa i obowiązki stron oraz konsekwencje jej naruszenia.
+        </li>
+        <li>
+          Tłumaczenie dokumentów sądowych- charakteryzuje sie prawną precyzją
+          ponieważ te dokumenty mają ogromne znaczenie prawne i błedne
+          tłumaczenie może wpłynąć na wynik procesu sądowego.
+        </li>
+        <li>
+          Tłumaczenie aktów stanu cywilnego- Pod pojęciem aktów stanu cywilnego
+          rozumie się poświadczony wyciąg lub poświadczoną kopię oryginału z
+          księgi stanu cywilnego w USC. W polskim prawie istnieją trzy rodzaje
+          aktów stanu cywilnego: akt urodzenia, akt małżeństwa i akt zgonu.
+        </li>
+        <li>
+          Dokumenty samochodowe-Charakteryzują się zazwyczaj szybkimi terminami
+          oraz niskimi cenami wykonania, głównie przez specyfike wykonania.
+        </li>
+        <li>
+          Tłumaczenia zwykłe-Tłumaczenia zwykłe (np. z takich dziedzin jak
+          reklama, literatura) nie muszą spełniać żadnych specjalnych wymogów
+          formalnych i nie muszą zostać sporządzone przez tłumacza przysięgłego.
+        </li>
+        <li>
+          Tłumaczenia konsekutywne są to tłumaczenia ustne odbywające się po
+          zakończeniu wypowiedzi mówcy. Tłumacz znajduję się obok mówcy, słucha
+          jego wypowiedzi i po jej zakończeniu odtwarza ją w całości w innym
+          języku, z reguły korzystając z notatek sporządzonych w trakcie
+          przemówienia.
+        </li>
+      </ul> -->
+    </div>
+    <div class="timeline">
+      <div class="container">
+        <h2>Historia pracy</h2>
+
+        <div class="row">
+          <div class="year">
+            <h5>2002</h5>
+            <p>
+              Zdobycie tytułu magistra z Germanistyki. Rozpoczęcie pracy w
+              szkole.
+            </p>
+          </div>
+          <div class="year">
+            <h5>2004</h5>
+            <p>Zdobycie tytułu tłumacza przysięgłego języka niemieckiego.</p>
+          </div>
+          <div class="year">
+            <h5>2019</h5>
+            <p>Zdobycie tytułu nauczyciela dyplomowanego.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero">
+        <h2>Kontakt <span id="kontakt"></span></h2>
+        <div class="row">
+          <img src="woman-working_2400x2400.webp" alt="woman" />
+          <div class="column">
+            <div class="description">
+              <strong>Adres firmy</strong> ul. Rzepińska 27 <br />
+              69-220 Ośno Lubuskie
+            </div>
+
+            <div class="description">
+              <strong>Numer telefonu</strong>+48 692 516 944
+            </div>
+            <div class="description">
+              <strong>Adres e-mail</strong> izagalosz@wp.pl
+            </div>
+
+            <div class="description">
+              <strong>Godziny otwarcia</strong> pon-pt 8:00-15:00
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="copyright">© 2023. Wszelkie prawa zastrzeżone.</div>
+      <nav>
+        <a href="#start">Start</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </footer>
+  </body>
 </html>
